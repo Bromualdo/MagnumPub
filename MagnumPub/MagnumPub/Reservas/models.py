@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime, date
 #Modelos App
 
 class Usuario (models.Model):
@@ -7,7 +7,7 @@ class Usuario (models.Model):
     mail= models.EmailField (max_length=30)
     telefono= models.IntegerField ()
     fecha_solicitud= models.DateField ()
-    fecha_reserva= models.DateField()
+    fecha_reserva= models.DateField(auto_now_add=True,)
     cantidad_personas= models.IntegerField ()
 
     def __str__(self):

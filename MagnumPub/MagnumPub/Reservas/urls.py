@@ -1,6 +1,8 @@
 from django.urls import path
-from .views import inicio
+from .views import inicio,formulario_reserva
+from .models import Usuario
 
 urlpatterns = [
-    path("inicio", inicio, name ='inicio'),
+    path("", inicio, name ='inicio'),
+    path ("", formulario_reserva,name='Reserva'),
             ]

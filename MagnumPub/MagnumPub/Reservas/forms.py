@@ -11,7 +11,8 @@ class Formulario_reserva (forms.ModelForm):
             'Nombre': forms.TextInput(attrs={'class':'form-control','placeholder':'Ej:Ingrese nombre de quien reserva'}),
             'Mail':forms.TextInput(attrs={'class':'form-control','placeholder':'Ej: Ingrese mail de quien reserva'}),
             'Teléfono':forms.NumberInput(attrs={'class':'form-control','placeholder':'Ingrese teléfono de quien reserva'}),
-            'Cantidad de personas':forms.TextInput (attrs={'class':'form-control','placeholder':'Ingrese teléfono de quien reserva'})
+            'Cantidad de personas':forms.TextInput (attrs={'class':'form-control','placeholder':'Cuantas personas?'})
+            
         }
 
 
