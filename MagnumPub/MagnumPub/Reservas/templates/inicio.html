@@ -33,10 +33,10 @@
                             <div style="background-color: coral;">
                             <h1 class="mb-5">Reserve su mesa</h1>
                             
-                            <form method="POST">{% csrf_token %}
+                            <form method="POST" class="tex-center">{% csrf_token %}
                                 {{ form.media }}
                                 {{ form.as_p }}
-                            
+                                
                                 <input type="submit" class="btn btn-warning "  value = "Confirmar reserva"/>
                             </form>
                             </div>

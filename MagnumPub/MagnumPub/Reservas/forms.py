@@ -6,6 +6,7 @@ from django.contrib.admin.widgets import AdminDateWidget,AdminTimeWidget,AdminSp
    
 class UsuarioForm(forms.ModelForm):
     
+    
     class Meta:
         model =Usuario
         fields="__all__"
