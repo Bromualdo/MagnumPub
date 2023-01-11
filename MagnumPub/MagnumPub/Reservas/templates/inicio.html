@@ -28,22 +28,26 @@
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
+                        {% block Contenido_cambiante %}
                         <div class="text-center text-white">
-                            <!-- Page heading-->
+                            <!-- Page heading-->                           
                             <div style="background-color:#EC7063; border: 10px solid white;
                             -moz-border-radius: 7px;
                             -webkit-border-radius: 50px;
                             padding: 20px">
                             <h1 class="mb-5">Reserve su mesa</h1>
+                              
                             
+                
                             <form method="POST" class= "formulario">{% csrf_token %}
                                 
                                 {{ form.media }}
                                 {{ form.as_p }}
-                            
+                                
                                 <input class="reserva" type="submit" class="btn btn-warning "  value = "Confirmar reserva"/>
                             </form>
                             </div>
+                            {% endblock Contenido_cambiante %}
                         </div>
                     </div>
                 </div>

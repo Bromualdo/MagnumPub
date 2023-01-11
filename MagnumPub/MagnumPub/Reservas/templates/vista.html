@@ -1,0 +1,42 @@
+{% extends 'inicio.html' %}
+
+{% block Contenido_cambiante %}
+
+<table class="table table-sm">
+        
+    <thead class="thead-dark">
+      <tr>
+        
+        <th scope="col">Nombre</th>
+        <th scope="col">Mail</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Reservo el dia</th>
+        <th scope="col">a las</th>
+        <th scope="col">Personas</th>
+        <th scope="col">Accion</th>
+        </tr>
+    </thead>
+    {% for item in reserva %}
+    <tbody>
+      <tr>
+        
+        <td>{{item.nombre}}</td>
+        <td>{{item.mail}}</td>
+        <td>{{item.telefono}}</td>
+        <td>{{item.fecha_reserva}}</td>
+        <td>{{item.hora}}</td>
+        <td>{{item.cantidad_personas}}</td>
+        <td><div><form action="{% url 'eliminar_reserva' item.id %}" method="POST">{% csrf_token %}
+            <button class="btn btn-outline-dark">Eliminar</button>
+    </tr>
+    
+    </tbody>
+    {% endfor %}
+</table>
+
+{% for items in reserva  %}
+    
+{% endfor %}
+    
+
+{% endblock Contenido_cambiante %}
