@@ -1,17 +1,18 @@
 from django.db import models
 from datetime import datetime, date
+from django.contrib.admin.widgets import AdminDateWidget,AdminTimeWidget,AdminSplitDateTime
+
 #Modelos App
 
 class Usuario (models.Model):
-    nombre= models.CharField (max_length=30)
+    nombre= models.CharField (max_length=30, null=True)
     mail= models.EmailField (max_length=30)
     telefono= models.IntegerField ()
-    fecha_solicitud= models.DateField ()
-    fecha_reserva= models.DateField(auto_now_add=True,)
+    fecha_reserva= models.TimeField(null=True)
+    hora=models.TimeField(null=True)
     cantidad_personas= models.IntegerField ()
 
-    def __str__(self):
-        return f'{self.fecha_reserva} - {self.cantidad_personas} - {self.nombre} - {self.telefono}'
+    
 
 class Mesa (models.Model):
     numero_mesa= models.IntegerField()

@@ -1,8 +1,12 @@
 from django.urls import path
-from .views import inicio,formulario_reserva
-from .models import Usuario
+from .views import inicio
+
+from django.views.i18n import JavaScriptCatalog
+
+
 
 urlpatterns = [
     path("", inicio, name ='inicio'),
-    path ("", formulario_reserva,name='Reserva'),
+    path('jsi18n', JavaScriptCatalog.as_view(), name='js-catlog'),
+
             ]
