@@ -8,7 +8,7 @@ class Usuario (models.Model):
     nombre= models.CharField (max_length=30, null=True)
     mail= models.EmailField (max_length=30)
     telefono= models.IntegerField ()
-    fecha_reserva= models.DateField(null=True)
+    fecha_reserva= models.CharField(max_length=30)
     hora=models.TimeField(null=True)
     cantidad_personas= models.IntegerField ()
 

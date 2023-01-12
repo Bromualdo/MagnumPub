@@ -10,6 +10,10 @@ def inicio (request):
     if request.method == "POST":
         form=UsuarioForm(request.POST)
         if form.is_valid():
+            # fecha=form.cleaned_data["fecha_reserva"]
+            # formato=fecha.strftime("%d/%m/%y")
+            
+        
             form.save()
         else:
             print("Error",form.errors)
