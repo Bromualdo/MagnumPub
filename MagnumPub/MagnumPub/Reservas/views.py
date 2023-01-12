@@ -13,7 +13,6 @@ def inicio (request):
             # fecha=form.cleaned_data["fecha_reserva"]
             # formato=fecha.strftime("%d/%m/%y")
             
-        
             form.save()
         else:
             print("Error",form.errors)
