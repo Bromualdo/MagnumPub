@@ -4,6 +4,8 @@ from django.template import loader
 from .forms import UsuarioForm
 from .models import Usuario
 from datetime import datetime, time
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login
 
 
 def inicio (request):
@@ -53,3 +55,37 @@ def eliminar_reserva(request,id):
        
         
         return render(request, "vista.html", {'eliminar': eliminar})    
+    
+
+
+def login_usuario (request):
+
+    if request.method == 'POST':
+
+        formulario_login_usuario = AuthenticationForm(request, data=request.POST)
+
+        if formulario_login_usuario.is_valid():
+
+            data = formulario_login_usuario.cleaned_data
+
+            nombre_usuario = data["username"]
+            password_usuario = data["password"]
+
+            user = authenticate(username=nombre_usuario, password=password_usuario)
+
+            if user:
+
+                login(request, user)
+                
+                return render(request, "login.html", {"mensaje": f'Bienvenido {nombre_usuario}'})
+                
+            else:
+
+                return render(request, "login.html", {"mensaje": f'Error, datos incorrectos'})
+
+        return render(request, "login.html", {"mensaje": f'Error, formulario invalido'})
+    else:
+
+        formulario_login_usuario = AuthenticationForm()
+
+        return render(request, "login.html", {"formulario_login": formulario_login_usuario})
