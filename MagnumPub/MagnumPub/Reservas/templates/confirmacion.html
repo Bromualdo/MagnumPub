@@ -1,0 +1,13 @@
+{% extends 'inicio.html' %}
+
+{% load static %}
+
+
+{% block Contenido_cambiante %}
+
+<h1 class="confirmacion">  Tu reserva se registró con éxito. Recordá que la misma es válida hasta las 21 hs.
+    Para cancelarla, comunicate con el WhatsApp del local. Gracias por elegirnos! <h1>
+
+<a class="btn btn-secondary btn-lg px-4 me-sm-3" href="{% url 'inicio'%}">Volver</a>
+
+{%endblock Contenido_cambiante%}

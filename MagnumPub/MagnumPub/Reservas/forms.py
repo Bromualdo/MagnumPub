@@ -9,8 +9,9 @@ class UsuarioForm(forms.ModelForm):
     
     class Meta:
         model =Usuario
-        fields="__all__"
+        fields = ('nombre', 'mail', 'telefono', 'fecha_reserva','hora','cantidad_personas') 
         widgets ={"fecha_reserva":AdminDateWidget(),
                   "hora":AdminTimeWidget()                  
                   }
+        
         

@@ -11,6 +11,10 @@ class Usuario (models.Model):
     fecha_reserva= models.CharField(max_length=30)
     hora=models.TimeField(null=True)
     cantidad_personas= models.IntegerField ()
+    
+    
+    def __str__ (self):
+         return f'{self.nombre} - {self.mail} - {self.telefono} - {self.fecha_reserva} - {self.hora} - {self.cantidad_personas}'
 
     
 
