@@ -3,30 +3,37 @@ from django.shortcuts import render, redirect
 from django.template import loader
 from .forms import UsuarioForm
 from .models import Usuario
-import datetime
+from datetime import datetime, time
 
 
 def inicio (request):
-    
-    if request.method == "POST":
-        form=UsuarioForm(request.POST)
-        if form.is_valid():
-            fecha=form.cleaned_data["fecha_reserva"]
+    hora_limite=time (20,30,00)
+    hora_limite_str=hora_limite.strftime ("%H:%M:%S")
+    hora_inicio=time (8,00,00)
+    hora_inicio_str=hora_inicio.strftime ("%H:%M:%S")
+    hora_actual=datetime.now ()
+    hora_actual_str=hora_actual.strftime("%H:%M:%S")
+    if hora_actual_str < hora_limite_str and hora_actual_str > hora_inicio_str:
+        if request.method == "POST":
+            form=UsuarioForm(request.POST)
+            if form.is_valid():
+                fecha=form.cleaned_data["fecha_reserva"]
             # formato=fecha.strftime("%d/%m/%y")
             
-            if Usuario.objects.filter(fecha_reserva__icontains=fecha).count() >= 9:
+                if Usuario.objects.filter(fecha_reserva__icontains=fecha).count() >= 9:
                                
-                return redirect ("limite")
-            else:
-                form.save()
+                    return redirect ("limite")
+                else:
+                    form.save()
            
-                return redirect ("confirmacion")
+                    return redirect ("confirmacion")
 
-        else:
-            print("Error",form.errors)
-    form=UsuarioForm()    
-    return render (request,"inicio.html",{'form':form})
-
+            else:
+                print("Error",form.errors)
+        form=UsuarioForm()    
+        return render (request,"inicio.html",{'form':form})
+    else:
+        return render (request, "fuera_horario.html")
 def confirmacion (request):
     return render (request, "confirmacion.html")
 
