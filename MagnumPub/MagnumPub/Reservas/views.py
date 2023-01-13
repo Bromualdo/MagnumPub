@@ -34,7 +34,7 @@ def limite (request):
     return render (request, "limite.html")
 
 def vista (request):   
-    lista = Usuario.objects.all()    
+    lista = Usuario.objects.all().order_by('fecha_reserva') 
     return render(request, "vista.html",{"reserva": lista} )
 
 def eliminar_reserva(request,id):
