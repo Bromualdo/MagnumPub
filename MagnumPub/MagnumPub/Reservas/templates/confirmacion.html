@@ -4,10 +4,20 @@
 
 
 {% block Contenido_cambiante %}
-
-<h1 class="confirmacion">  Tu reserva se registró con éxito. Recordá que la misma es válida hasta las 21 hs.
+    <style> html, body {
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: #666;
+    text-align:center
+    
+    }
+</style>
+<h1 class="confirmacion" style="box-shadow: 0 2px 10px #f5f5f5">  Tu reserva se registró con éxito. Recordá que la misma es válida hasta las 21 hs.
     Para cancelarla, comunicate con el WhatsApp del local. Gracias por elegirnos! <h1>
-
-<a class="btn btn-secondary btn-lg px-4 me-sm-3" href="{% url 'inicio'%}">Volver</a>
+<br>
+<a  class="confirmacion" style="font size:2.5em; text-decoration:underline; text-align:center" href="{% url 'inicio'%}">>Volver a la página de inicio<</a>
 
 {%endblock Contenido_cambiante%}

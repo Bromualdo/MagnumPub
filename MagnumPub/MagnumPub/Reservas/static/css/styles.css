@@ -542,6 +542,7 @@ progress {
   font-size: calc(1.425rem + 2.1vw);
   font-weight: 300;
   line-height: 1.2;
+  text-align: center;
 }
 @media (min-width: 1200px) {
   .display-5 {
@@ -7397,7 +7398,8 @@ textarea.form-control-lg {
   text-transform: uppercase;
   -webkit-text-stroke: 1px black;
   color: white;
-  background-size: auto;
+  background-size: 0 auto;
+   
 }
 
 .texto-borde {
