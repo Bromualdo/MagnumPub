@@ -6,7 +6,7 @@ from .models import Usuario
 from datetime import datetime, time
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
-
+from django.contrib.auth.decorators import login_required,permission_required
 
 def inicio (request):
     # hora_limite=time (20,30,00)
@@ -42,10 +42,14 @@ def confirmacion (request):
 def limite (request):
     return render (request, "limite.html")
 
+@permission_required('Reservas.delete_usuario', raise_exception=True)
+@login_required(login_url='inicio')  
 def vista (request):   
     lista = Usuario.objects.all().order_by('fecha_reserva') 
     return render(request, "vista.html",{"reserva": lista} )
 
+@permission_required('Reservas.delete_usuario', raise_exception=True)
+@login_required(login_url='inicio')  
 def eliminar_reserva(request,id):
     
     if request.method == "POST":
@@ -54,7 +58,7 @@ def eliminar_reserva(request,id):
         eliminar.delete()        
        
         
-        return render(request, "vista.html", {'eliminar': eliminar})    
+    return redirect("vista")
     
 
 
