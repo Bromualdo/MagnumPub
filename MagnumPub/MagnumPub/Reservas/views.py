@@ -9,13 +9,13 @@ from django.contrib.auth import authenticate, login
 
 
 def inicio (request):
-    hora_limite=time (20,30,00)
-    hora_limite_str=hora_limite.strftime ("%H:%M:%S")
-    hora_inicio=time (8,00,00)
-    hora_inicio_str=hora_inicio.strftime ("%H:%M:%S")
-    hora_actual=datetime.now ()
-    hora_actual_str=hora_actual.strftime("%H:%M:%S")
-    if hora_actual_str < hora_limite_str and hora_actual_str > hora_inicio_str:
+    # hora_limite=time (20,30,00)
+    # hora_limite_str=hora_limite.strftime ("%H:%M:%S")
+    # hora_inicio=time (8,00,00)
+    # hora_inicio_str=hora_inicio.strftime ("%H:%M:%S")
+    # hora_actual=datetime.now ()
+    # hora_actual_str=hora_actual.strftime("%H:%M:%S")
+    # if hora_actual_str < hora_limite_str and hora_actual_str > hora_inicio_str:
         if request.method == "POST":
             form=UsuarioForm(request.POST)
             if form.is_valid():
@@ -34,8 +34,8 @@ def inicio (request):
                 print("Error",form.errors)
         form=UsuarioForm()    
         return render (request,"inicio.html",{'form':form})
-    else:
-        return render (request, "fuera_horario.html")
+    # else:
+    #     return render (request, "fuera_horario.html")
 def confirmacion (request):
     return render (request, "confirmacion.html")
 
