@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import inicio,vista,eliminar_reserva, confirmacion,limite,login_usuario
+from .views import inicio,vista,eliminar_reserva, confirmacion,limite,login_usuario, fuera_horario
 
 from django.views.i18n import JavaScriptCatalog
 
@@ -13,5 +13,6 @@ urlpatterns = [
     path("vista", vista, name ='vista'),
     path('eliminar/<int:id>',eliminar_reserva,name='eliminar_reserva'),
     path ("login_usuario/", login_usuario, name ="Login"),
+    path ("fuera_horario/", fuera_horario, name= "fuera_horario")
 
             ]
