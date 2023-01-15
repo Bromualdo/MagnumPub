@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime, date
-
+from django.contrib.admin.widgets import AdminDateWidget,AdminTimeWidget,AdminSplitDateTime
 
 #Modelos App
 
@@ -9,12 +9,11 @@ class Usuario (models.Model):
     mail= models.EmailField (max_length=30)
     telefono= models.IntegerField ()
     fecha_reserva= models.CharField(max_length=30)
-    hora=models.TimeField(null=True)
     cantidad_personas= models.IntegerField ()
     
     
     def __str__ (self):
-         return f'{self.nombre} - {self.mail} - {self.telefono} - {self.fecha_reserva} - {self.hora} - {self.cantidad_personas}'
+         return f'{self.nombre} - {self.mail} - {self.telefono} - {self.fecha_reserva} - {self.cantidad_personas}'
 
     
 
@@ -23,6 +22,6 @@ class Mesa (models.Model):
     cantidad_personas= models.IntegerField()
 
     def __str__ (self):
-        return f' {self.numero_mesa} - {self.cantidad_personas}' #no se si vamos a ocupar este def, pero que quede, despues vemos
+        return f' {self.numero_mesa} - {self.cantidad_personas}' #sin uso
 
 
