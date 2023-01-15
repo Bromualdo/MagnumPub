@@ -329,6 +329,7 @@ th {
   border-color: inherit;
   border-style: solid;
   border-width: 0;
+
 }
 
 label {
@@ -1997,6 +1998,7 @@ progress {
 
 .table-sm > :not(caption) > * > * {
   padding: 0.25rem 0.25rem;
+  
 }
 
 .table-bordered > :not(caption) > * {
@@ -2175,6 +2177,7 @@ progress {
   padding-top: calc(1rem + 1px);
   padding-bottom: calc(1rem + 1px);
   font-size: 1.25rem;
+  
 }
 
 .col-form-label-sm {
@@ -2205,6 +2208,7 @@ progress {
           appearance: none;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  
 }
 @media (prefers-reduced-motion: reduce) {
   .form-control {
@@ -2223,6 +2227,7 @@ progress {
   border-color: #86b7fe;
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  text-align: left;
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.5em;
@@ -2428,6 +2433,7 @@ textarea.form-control-lg {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  
 }
 @media (prefers-reduced-motion: reduce) {
   .form-select {
@@ -2680,10 +2686,12 @@ textarea.form-control-lg {
   border: 1px solid transparent;
   transform-origin: 0 0;
   transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+  
 }
 @media (prefers-reduced-motion: reduce) {
   .form-floating > label {
     transition: none;
+    
   }
 }
 .form-floating > .form-control {
@@ -7402,6 +7410,15 @@ textarea.form-control-lg {
    
 }
 
+.vista {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 5em;
+  text-transform: uppercase;
+  color: black;
+
+   
+}
+
 .texto-borde {
   -webkit-text-stroke: 2px black;
   color: transparent; 
@@ -7419,6 +7436,15 @@ textarea.form-control-lg {
   font-size: 2em;
   text-transform: uppercase;
   color: white;
+}
+
+.titulos_cuadro {
+  font-size: 1.2rem;
+  line-height: 16px;
+  border-bottom: 1px solid;
+  vertical-align: top;
+  padding: 8px;
+  text-align: center
 }
 
 .confirmacion {
