@@ -81,7 +81,7 @@ def login_usuario (request):
 
                 login(request, user)
                 
-                return render(request, "login.html", {"mensaje": f'Bienvenido {nombre_usuario}'})
+                return render(request, "vista.html", {"mensaje": f'Bienvenido {nombre_usuario}'})
                 
             else:
 

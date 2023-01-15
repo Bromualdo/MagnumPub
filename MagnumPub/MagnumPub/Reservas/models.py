@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime, date
-from django.contrib.admin.widgets import AdminDateWidget,AdminTimeWidget,AdminSplitDateTime
+
 
 #Modelos App
 

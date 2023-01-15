@@ -5,12 +5,15 @@ from django.contrib.admin.widgets import AdminDateWidget,AdminTimeWidget,AdminSp
 
    
 class UsuarioForm(forms.ModelForm):
-    
-    
+   
+
+        
     class Meta:
         model =Usuario
         fields = ('nombre', 'mail', 'telefono', 'fecha_reserva','hora','cantidad_personas') 
-        widgets ={"fecha_reserva":AdminDateWidget(),
+        widgets ={
+            
+            'fecha_reserva':AdminDateWidget(),
                   "hora":AdminTimeWidget()                  
                   }
         

@@ -70,7 +70,7 @@
     margin-bottom: 20px;
     border: 1px solid #1c87c9;
     outline: none;
-    text-transform: uppercase;
+    
     font-size: 30px;
     }
     
@@ -80,7 +80,7 @@
         
     <h1 class="display-5 fw-bolder text mb-2">Login Usuario</h1> 
          
-    <form action="{% url 'Login' %}" style= "table" method="POST">{% csrf_token %}
+    <form action="{% url 'Login' %}" method="POST">{% csrf_token %}
 
       {{formulario_login.as_p}}
 
