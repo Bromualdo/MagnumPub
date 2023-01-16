@@ -1,0 +1,26 @@
+
+    {% extends 'inicio.html' %}
+
+    {% load static %}
+    
+    
+    {% block Contenido_cambiante %}
+    <style>
+        html, body {
+        min-height: 100%;
+        margin-top: 25px
+        padding: 0;
+        margin: 0;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 14px;
+        color: white;
+        text-align:center
+        
+        }
+        
+           
+      </style>
+    <h1 class="confirmacion" style="box-shadow: 0 2px 10px #f5f5f5;">  La sesión se ha cerrado<h1>
+    <br> 
+    <a class="confirmacion"  href="{% url 'Login'%}">>Iniciar sesión<</a>
+    {%endblock Contenido_cambiante%}
