@@ -7,6 +7,7 @@ from datetime import datetime, time
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required,permission_required
+from django.contrib.auth.views import LogoutView
 
 def inicio (request):
     hora_limite=time (20,30,00)
@@ -22,7 +23,7 @@ def inicio (request):
                 fecha=form.cleaned_data["fecha_reserva"]
             # formato=fecha.strftime("%d/%m/%y")
             
-                if Usuario.objects.filter(fecha_reserva__icontains=fecha).count() >= 9:
+                if Usuario.objects.filter(fecha_reserva__icontains=fecha).count() >= 10:
                                
                     return redirect ("limite")
                 else:
@@ -31,7 +32,7 @@ def inicio (request):
                     return redirect ("confirmacion")
 
             else:
-                print("Error",form.errors)
+                return redirect ("error")
         form=UsuarioForm()    
         return render (request,"inicio.html",{'form':form})
     else:
@@ -45,6 +46,9 @@ def fuera_horario (request):
 
 def limite (request):
     return render (request, "limite.html")
+
+def error (request):
+    return render (request, "error.html")
 
 @permission_required('Reservas.delete_usuario', raise_exception=True)
 @login_required(login_url='inicio')  
@@ -85,13 +89,10 @@ def login_usuario (request):
 
                 login(request, user)
                 
-                return render(request, "login.html", {"mensaje": f'Bienvenido {nombre_usuario}'})
-                
-            else:
-
-                return render(request, "login.html", {"mensaje": f'Error, datos incorrectos'})
-
-        return render(request, "login.html", {"mensaje": f'Error, formulario invalido'})
+                return render (request, "inicio_login.html", {"mensaje": f'Bienvenido {nombre_usuario}'})
+        
+        return render(request, "error_login.html", {"mensaje": f'Error en la carga de datos'})
+    
     else:
 
         formulario_login_usuario = AuthenticationForm()
