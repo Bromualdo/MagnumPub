@@ -1,0 +1,26 @@
+{% extends 'inicio.html' %}
+
+{% load static %}
+
+
+{% block Contenido_cambiante %}
+
+<style>
+    html, body {
+    min-height: 100%;
+    margin-top: 25px
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: white;
+    text-align:center
+    
+    }
+    
+       
+  </style>
+<p class= "confirmacion" style= "font-size: 2.5em">{{mensaje}} <b></p>
+<br>
+<a class="confirmacion" style="font-size:2.5em; text-decoration:underline" href="{% url 'Login'%}">>Volver a intentar<</a>
+{%endblock Contenido_cambiante%}

@@ -1,7 +1,21 @@
 {% extends 'inicio.html' %}
 
 {% block Contenido_cambiante %}
-
+<style>
+  html, body {
+  min-height: 100%;
+  margin-top: 25px
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 14px;
+  color: white;
+  text-align:center
+  
+  }
+  
+     
+</style>
 <table class="table table-sm">
         
     <thead>
@@ -35,6 +49,11 @@
 {% for items in reserva  %}
     
 {% endfor %}
-    
+<br> <br>
+{% if user.is_authenticated %}
+<<a  style="font-size:1em; text-decoration:underline; border: 5px solid white; 
+padding: 20px; background-color:salmon; text-transform: uppercase; font-weight:bold" href="{% url 'Logout' %}"> Cerrar sesión</a>
+{% endif %}
+
 
 {% endblock Contenido_cambiante %}
