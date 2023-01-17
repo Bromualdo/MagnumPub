@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import inicio,vista,eliminar_reserva, confirmacion,limite,login_usuario, fuera_horario, error
+from .views import inicio,vista,eliminar_reserva, confirmacion,limite,login_usuario, fuera_horario, error,lunes
 from django.views.i18n import JavaScriptCatalog
 from django.contrib.auth.views import LogoutView
 
@@ -11,6 +11,7 @@ urlpatterns = [
     path ("confirmacion", confirmacion, name="confirmacion"),
     path ("limite", limite, name="limite"),
     path("vista", vista, name ='vista'),
+    path("lunes", lunes, name ='lunes'),
     path('eliminar/<int:id>',eliminar_reserva,name='eliminar_reserva'),
     path ("login_usuario/", login_usuario, name ="Login"),
     path ("fuera_horario/", fuera_horario, name= "fuera_horario"),
