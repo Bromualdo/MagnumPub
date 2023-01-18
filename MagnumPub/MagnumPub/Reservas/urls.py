@@ -16,6 +16,6 @@ urlpatterns = [
     path ("login_usuario/", login_usuario, name ="Login"),
     path ("fuera_horario/", fuera_horario, name= "fuera_horario"),
     path ("error/", error, name = "error"),
-    path ("logout_usuario/", LogoutView.as_view (template_name= "logout.html"), name = "Logout")
-
+    path ("logout_usuario/", LogoutView.as_view (template_name= "logout.html"), name = "Logout"),
+    
             ]

@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required,permission_required
 from django.contrib.auth.views import LogoutView
 
 def inicio (request):
-    hora_limite=time (23,30,00)
+    hora_limite=time (20,30,00)
     hora_limite_str=hora_limite.strftime ("%H:%M:%S")
     hora_inicio=time (8,00,00)
     hora_inicio_str=hora_inicio.strftime ("%H:%M:%S")
@@ -58,6 +58,8 @@ def error (request):
 
 def lunes (request):
     return render (request, "lunes.html")
+
+
 
 @permission_required('Reservas.delete_usuario', raise_exception=True)
 @login_required(login_url='inicio')  
