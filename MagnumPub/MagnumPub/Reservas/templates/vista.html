@@ -1,45 +1,47 @@
 {% extends 'inicio.html' %}
 
+{%load static%}
+<header>
+  <div id= "principal">
+
 {% block Contenido_cambiante %}
 <style>
-  html, body {
-  min-height: 100%;
-  margin-top: 25px
-  padding: 0;
-  margin: 0;
-  font-family: Roboto, Arial, sans-serif;
-  font-size: 14px;
-  color: white;
-  text-align:center
   
-  }
-  
-     
+    html, body, thead {
+    margin: 0, auto
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: black;
+    text-align:center
+                }
+    
 </style>
-<table class="table table-sm">
+
+<p style= "margin-top: 390px "> </p>
+<table style= "margin: 0 auto">
         
     <thead>
-      <tr>
+      <tr >
         
-        <th scope="col" class="titulos_cuadro">Nombre</th>
-        <th scope="col" class="titulos_cuadro">Mail</th>
-        <th scope="col" class="titulos_cuadro">Telefono</th>
-        <th scope="col" class="titulos_cuadro">Reserva para el dia</th>
-        <th scope="col" class="titulos_cuadro">Personas</th>
-        <th scope="col" class="titulos_cuadro">Acción</th>
+        <th scope="col" class="titulos_cuadro" style= "font-size:150%; background-color:#EC7063; color:whitesmoke">Nombre</th>
+        <th scope="col" class="titulos_cuadro" style= "font-size:150%; background-color:#EC7063; color:whitesmoke">Mail</th>
+        <th scope="col" class="titulos_cuadro" style= "font-size:150%; background-color:#EC7063; color:whitesmoke">Telefono</th>
+        <th scope="col" class="titulos_cuadro" style= "font-size:150%; background-color:#EC7063; color:whitesmoke">Reserva para el dia</th>
+        <th scope="col" class="titulos_cuadro" style= "font-size:150%; background-color:#EC7063; color:whitesmoke">Personas</th>
+        <th scope="col" class="titulos_cuadro" style= "font-size:150%; background-color:#EC7063; color:whitesmoke">Acción</th>
         </tr>
     </thead>
     {% for item in reserva %}
     <tbody class="vista" style="text-align:center">
       <tr>
         
-        <td>{{item.nombre}}</td>
-        <td>{{item.mail}}</td>
-        <td>{{item.telefono}}</td>
-        <td>{{item.fecha_reserva}}</td>
-        <td>{{item.cantidad_personas}}</td>
-        <td><div><form action="{% url 'eliminar_reserva' item.id %}" class= "vista" method="POST">{% csrf_token %}
-            <button class="btn btn-outline-dark">Eliminar</button>
+        <td style= "font-size:15px">{{item.nombre}}</td>
+        <td style= "font-size:15px">{{item.mail}}</td>
+        <td style= "font-size:15px">{{item.telefono}}</td>
+        <td style= "font-size:15px">{{item.fecha_reserva}}</td>
+        <td style= "font-size:15px">{{item.cantidad_personas}}</td>
+        <td ><div><form action="{% url 'eliminar_reserva' item.id %}"  method="POST">{% csrf_token %}
+            <button style= "font-size:20px; background-color:red">Eliminar</button>
     </tr>
     
     </tbody>
@@ -51,8 +53,8 @@
 {% endfor %}
 <br> <br>
 {% if user.is_authenticated %}
-<<a  style="font-size:1em; text-decoration:underline; border: 5px solid white; 
-padding: 20px; background-color:salmon; text-transform: uppercase; font-weight:bold" href="{% url 'Logout' %}"> Cerrar sesión</a>
+<a class="confirmacion" style="padding: 15px 15px; font-size:1.7em; text-decoration:underline" 
+href="{% url 'Logout' %}"> Cerrar sesión</a>
 {% endif %}
 
 
