@@ -14,11 +14,11 @@
     color: black;
     text-align:center
                 }
-    
+
 </style>
 
-<p style= "margin-top: 390px "> </p>
-<table style= "margin: 0 auto">
+
+<table style= "margin: auto">
         
     <thead>
       <tr >
@@ -40,8 +40,11 @@
         <td style= "font-size:15px">{{item.telefono}}</td>
         <td style= "font-size:15px">{{item.fecha_reserva}}</td>
         <td style= "font-size:15px">{{item.cantidad_personas}}</td>
-        <td ><div><form action="{% url 'eliminar_reserva' item.id %}"  method="POST">{% csrf_token %}
-            <button style= "font-size:20px; background-color:red">Eliminar</button>
+        <td ><div> <form action="{% url 'eliminar_reserva' item.id %}" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="reserva_id" value="{{item.id}}">
+              <button style="font-size:20px; background-color:red">Eliminar</button>
+            </form>
     </tr>
     
     </tbody>

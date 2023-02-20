@@ -70,13 +70,9 @@ def vista (request):
 @permission_required('Reservas.delete_usuario', raise_exception=True)
 @login_required(login_url='inicio')  
 def eliminar_reserva(request,id):
-    
     if request.method == "POST":
-        
         eliminar= Usuario.objects.get(id=id)
         eliminar.delete()        
-       
-        
     return redirect("vista")
     
 
